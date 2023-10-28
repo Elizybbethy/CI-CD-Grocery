@@ -10,14 +10,15 @@
 </head>
 <body>
 
-  <nav>
+  <!-- <nav>
     <ul class="navbar">
       <li><a href="#edit">Grocery</a></li>
+      <li><a href="/add">Add</a></li>
       <li><a href="#edit">Edit</a></li>
       <li><a href="#view">View</a></li>
       <li><a href="#remove">Remove</a></li>
     </ul>
-  </nav>
+  </nav> -->
 
   <section class="section-meals">
 
@@ -79,26 +80,21 @@
 
   
 
-     <div class="diets">
-      
-      <h3 class="heading-tertiary"> Add to cart</h3>
+  <div class="diets card">
+    <h3 class="heading-tertiary"><a href="/add">Add</a>
+    <a href="{% url 'shopping_list' %}">Remove</a>
+    <a href="{% url 'shopping_list' %}">Edit</a>
+    </h3>
+    <ul class="list">
+        {% for item in items %}
+        <li>item: {{ item.name }}</li>
+        <li>quantity: {{ item.quantity }}</li>
+        <li>cost: {{ item.cost }}</li>
+        <li>date: {{ item.date }}</li>
+        {% endfor %}
+    </ul>
+</div>
 
-      <ul class="list">
-      
-        <li class="list-item"><ion-icon class="list-icon" name="checkmark-outline"></ion-icon ><span>Onions</span> </li>
-         <li class="list-item"><ion-icon class="list-icon" name="checkmark-outline"></ion-icon><span>Irish Potatoes</span></li>
-         <li class="list-item"><ion-icon class="list-icon" name="checkmark-outline"></ion-icon><span>Nakatti</span></li>
-         <li class="list-item"><ion-icon class="list-icon" name="checkmark-outline"></ion-icon><span>Colards/sukuma</span></li>
-         <li class="list-item"><ion-icon class="list-icon" name="checkmark-outline"></ion-icon><span>Cooking oil</span></li>
-         <li class="list-item"><ion-icon class="list-icon" name="checkmark-outline"></ion-icon ><span>Cabbage</span></li>
-         <li class="list-item"><ion-icon class="list-icon" name="checkmark-outline"></ion-icon ><span>Ovacado</span></li>
-         <li class="list-item"><ion-icon class="list-icon" name="checkmark-outline"></ion-icon ><span>milk</span></li>
-
-      </ul>
-     </div>  
-    
-
-    </div>
 
      <div class="container all-recipes">
 

@@ -4,7 +4,8 @@ from .models import ShoppingList
 
 
 def index(request):
-    return render(request,'index.html')
+    items = ShoppingList.objects.all()  
+    return render(request, 'index.html', {'items': items})
 
 
 def add_item(request):
@@ -15,7 +16,8 @@ def add_item(request):
             return redirect('index')
     else:
         form = ItemForm()
-        return render(request,'add.html',{'form':form})
+    return render(request, 'add.html', {'form': form})
+
     
 def shopping_list (request):
     items = ShoppingList.objects.all()
